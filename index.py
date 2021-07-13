@@ -1,16 +1,14 @@
-import pywifi
-import time
-
-wifi = pywifi.PyWiFi()
-iface = wifi.interfaces()[0]
-iface.scan()
-time.sleep(0.5)
-results = iface.scan_results()
-
-# use for or other loop to retrieve you data
-print('start scan...')
-for i in enumerate(results):    
-    bssid = i.bssid
-    ssid  = i.ssid
-    print("Mac Address" + bssid +"\t" + "access point name" + ssid)
-print('all done')
+import subprocess
+networks = subprocess.check_output(['netsh', 'wlan', 'show', 'network'])
+networks = networks.decode('ascii')
+networks = networks.replace('\r', '')
+ssid = networks.split('\n')
+ssid = ssid[4:]
+ssids = []
+x = 0
+print('START')
+while x < len(ssid):
+    if x % 5 == 0:
+        ssids.append(ssid[x])
+    x += 1
+print(ssids) 
