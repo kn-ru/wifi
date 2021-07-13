@@ -1,14 +1,16 @@
-import subprocess
-networks = subprocess.check_output(['netsh', 'wlan', 'show', 'network'])
-networks = networks.decode('ascii')
-networks = networks.replace('\r', '')
-ssid = networks.split('\n')
-ssid = ssid[4:]
-ssids = []
-x = 0
-print('START')
-while x < len(ssid):
-    if x % 5 == 0:
-        ssids.append(ssid[x])
-    x += 1
-print(ssids) 
+#!/usr/bin/python
+from __future__ import print_function
+
+from wifi import Cell, Scheme
+
+# get all cells from the air
+ssids = [cell.ssid for cell in Cell.all('wlan0')]
+
+schemes = list(Scheme.all())
+print('ALL WIFI')
+for scheme in schemes:
+    ssid = scheme.options.get('wpa-ssid', scheme.options.get('wireless-essid'))
+    if ssid in ssids:
+        print('Connecting to %s' % ssid)
+        scheme.activate()
+        break
