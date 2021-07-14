@@ -22,20 +22,12 @@ for wifi_point in wifi_list:
 if 'gate0105' in wifi_list:
     print('wifi point {} in white wifi lists'.format('gate0105'))
 
-    profile = pywifi.Profile()
-    profile.ssid = 'gate0105'
-    profile.auth = const.AUTH_ALG_OPEN
-    profile.akm.append(const.AKM_TYPE_WPA2PSK)
-    profile.cipher = const.CIPHER_TYPE_CCMP
-    profile.key = 'Goldstar1!'
-
-    print('connect with network...')
-    wifi = pywifi.PyWiFi()
-    Iface = wifi.interfaces()[0]
-    Iface.remove_all_network_profiles()
-    tmp_profile = Iface.add_network_profile(profile)
-    Iface.remove_all_network_profiles()
-    tmp_profile = Iface.add_network_profile(profile)
+    print('set config')
+    os.system('wpa_passphrase "gate0105" "Goldstar1!" | sudo tee /etc/wpa_supplicant.conf')
     print('sleep...')
-    time.sleep(5)
+    time.sleep(1)
+    os.system('wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0')
+    print('sleep...')
+    time.sleep(1)
+
     print('Done')
