@@ -18,18 +18,23 @@ for ssid_num in start_ssid:
 
 for wifi_point in wifi_list:
     print('WiFi - ', wifi_point)
-# print('set class wifi')
-# wifi = pywifi.PyWiFi()
 
-# print('set instance iface')
-# iface = wifi.interfaces()[0]
+if 'gate0105' in wifi_list:
+    print('wifi point {} in white wifi lists'.format('gate0105'))
 
-# print('start scanning network...')
-# Name = iface.name()
-# iface.scan()
-# time.sleep(2)
+    profile = pywifi.Profile()
+    profile.ssid = 'gate0105'
+    profile.auth = const.AUTH_ALG_OPEN
+    profile.akm.append(const.AKM_TYPE_WPA2PSK)
+    profile.cipher = const.CIPHER_TYPE_CCMP
+    profile.key = 'Goldstar1!'
 
-# results = iface.scan_results()
-
-# for data in results:
-#     print('Found network ', data.ssid)
+    print('connect with network...')
+    Iface = wifi.interfaces()[0]
+    Iface.remove_all_network_profiles()
+    tmp_profile = Iface.add_network_profile(profile)
+    Iface.remove_all_network_profiles()
+    tmp_profile = Iface.add_network_profile(profile)
+    print('sleep...')
+    time.sleep(5)
+    print('Done')
