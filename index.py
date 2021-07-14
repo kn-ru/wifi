@@ -1,16 +1,19 @@
-#!/usr/bin/python
-from __future__ import print_function
+import time
+import pywifi
+from pywifi import const
 
-from wifi import Cell, Scheme
+print('set class wifi')
+wifi = pywifi.PyWiFi()
 
-# get all cells from the air
-ssids = [cell.ssid for cell in Cell.all('wlan0')]
+print('set instance iface')
+iface = wifi.interfaces()[0]
 
-schemes = list(Scheme.all())
-print('ALL WIFI')
-for scheme in schemes:
-    ssid = scheme.options.get('wpa-ssid', scheme.options.get('wireless-essid'))
-    if ssid in ssids:
-        print('Connecting to %s' % ssid)
-        scheme.activate()
-        break
+print('start scanning network...')
+Name = iface.name()
+iface.scan()
+time.sleep(2)
+
+results = Iface.scan_results()
+
+for data in results:
+    print('Found network ', data.ssid)
