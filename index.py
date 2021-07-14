@@ -14,7 +14,7 @@ start_ssid = [m.start() for m in re.finditer('ESSID', data)]
 
 wifi_list = []
 for ssid_num in start_ssid:
-    wifi_list.append(data[ssid_num:][:data[ssid_num:].find("\n")].split(':')[1])
+    wifi_list.append(data[ssid_num:][:data[ssid_num:].find("\n")].split(':')[1][1:-1])
 
 for wifi_point in wifi_list:
     print('WiFi - ', wifi_point)
@@ -30,6 +30,7 @@ if 'gate0105' in wifi_list:
     profile.key = 'Goldstar1!'
 
     print('connect with network...')
+    wifi = pywifi.PyWiFi()
     Iface = wifi.interfaces()[0]
     Iface.remove_all_network_profiles()
     tmp_profile = Iface.add_network_profile(profile)
