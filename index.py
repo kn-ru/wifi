@@ -13,7 +13,7 @@ Name = iface.name()
 iface.scan()
 time.sleep(2)
 
-results = Iface.scan_results()
+results = iface.scan_results()
 
 for data in results:
     print('Found network ', data.ssid)
