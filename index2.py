@@ -14,6 +14,6 @@ while True:
 
 
     except Exception as e:
-        print('Error - ', e)
-        print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
-        break
+        # print('Error - ', e)
+        # print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
+        print('CONNECTED NOT ESTABLISHED')
