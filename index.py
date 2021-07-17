@@ -44,6 +44,6 @@ if 'iPhone knru' in wifi_list:
     time.sleep(1)
     os.system('wpa_cli -i wlan0 reconfigure')
     print('sleep...')
-    time.sleep(1)
+    time.sleep(3)
 
     print('Done')
