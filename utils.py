@@ -12,17 +12,10 @@ check_url = os.getenv("CHECKS_URL")
 test_check_url = os.getenv("INTERNET_CHECK_URL")
 
 def url_ok(url):
-    try:
-        r = requests.head(url)
-        print('status - ', r.status_code)
-        return r.status_code == 200
-    except requests.exceptions.ConnectionError:
-        if r.status_code == "Connection refused":
-            return True
-        else:
-            return False
-        
-            
+    r = requests.head(url)
+    print('status - ', r.status_code)
+
+    return r.status_code == 200
 
 def get_wifi_list():
     data = os.popen('sudo iwlist scanning').read()
