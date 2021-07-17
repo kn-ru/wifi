@@ -19,6 +19,7 @@ while True:
                 connection = check_connection(wifi_point)
                 if connection:
                     print('CONNECTED SUCCESSFULLY: ', wifi_point)
+                    send_message_debug('CONNECTED SUCCESSFULLY')
                 else:
                     print('CONNECTED NOT ESTABLISHED')
 

@@ -10,6 +10,12 @@ test_urls = os.getenv("TEST_LISTS_URL").split(',')
 white_list = os.getenv("WHITE_LISTS").split(',')
 check_url = os.getenv("CHECKS_URL")
 test_check_url = os.getenv("INTERNET_CHECK_URL")
+TOKEN_BOT = os.getenv("TOKEN_BOT")
+CHAT_ID = os.getenv("CHAT_ID")
+
+def send_message_debug(message):
+    url = "https://api.telegram.org/bot" + TOKEN_BOT + "/sendMessage?chat_id=@" + CHAT_ID + "&text=" + message
+    requests.post(url)
 
 def url_ok(url):
     r = requests.head(url)
