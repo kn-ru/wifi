@@ -14,13 +14,14 @@ while True:
             print('WiFi - ', wifi_point)
             if wifi_point in white_list:
                 print('wifi point {} in white wifi lists'.format(wifi_point))
+                print('check connection')
                 connection = check_connection(wifi_point)
                 if connection:
                     print('CONNECTED SUCCESSFULLY: ', wifi_point)
                     break
 
 
-    except:
-        break
-    finally:
+    except Exception as e:
+        print('Error - ', e)
+        print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
         break
