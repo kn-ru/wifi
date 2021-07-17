@@ -39,10 +39,10 @@ if 'iPhone knru' in wifi_list:
     os.system('wpa_passphrase "iPhone knru" "qwerty12345" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf')
     print('sleep...')
     time.sleep(1)
-    os.system('sudo killall wpa_supplicant')
+    # os.system('sudo killall wpa_supplicant')
     print('sleep...')
     time.sleep(1)
-    os.system('wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0')
+    os.system('wpa_cli -i wlan0 reconfigure')
     print('sleep...')
     time.sleep(1)
 
