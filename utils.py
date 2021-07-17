@@ -13,6 +13,7 @@ test_check_url = os.getenv("INTERNET_CHECK_URL")
 
 def url_ok(url):
     r = requests.head(url)
+    print('status - ', r.status_code)
     return r.status_code == 200
 
 def get_wifi_list():
