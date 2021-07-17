@@ -17,7 +17,7 @@ def url_ok(url):
         print('status - ', r.status_code)
         return r.status_code == 200
     except requests.exceptions.ConnectionError:
-        if r.status_code = "Connection refused":
+        if r.status_code == "Connection refused":
             return True
         else:
             return False
