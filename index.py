@@ -21,6 +21,6 @@ while True:
 
 
     except:
-        pass
+        break
     finally:
-        pass
+        break
