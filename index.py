@@ -31,3 +31,16 @@ if 'gate0105' in wifi_list:
     time.sleep(1)
 
     print('Done')
+
+if 'iPhone knru' in wifi_list:
+    print('wifi point {} in white wifi lists'.format('iPhone knru'))
+
+    print('set config')
+    os.system('wpa_passphrase "iPhone knru" "qwerty12345" | sudo tee /etc/wpa_supplicant.conf')
+    print('sleep...')
+    time.sleep(1)
+    os.system('wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0')
+    print('sleep...')
+    time.sleep(1)
+
+    print('Done')
