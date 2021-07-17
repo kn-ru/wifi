@@ -10,7 +10,7 @@ while True:
         print('check connection')
         connection = check_connection_mode('internet')
         if connection:
-            print('CONNECTED SUCCESSFULLY: ', wifi_point)
+            print('CONNECTED SUCCESSFULLY')
             break
 
 
