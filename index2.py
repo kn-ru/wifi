@@ -11,9 +11,11 @@ while True:
         connection = check_connection_mode('internet')
         if connection:
             print('CONNECTED SUCCESSFULLY')
+        else:
+            print('CONNECTED NOT ESTABLISHED')
 
 
     except Exception as e:
         # print('Error - ', e)
         # print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
-        print('CONNECTED NOT ESTABLISHED')
+        print('CONNECTED NOT ESTABLISHED. NETWORK DONT WORK')
