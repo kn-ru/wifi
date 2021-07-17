@@ -19,10 +19,11 @@ while True:
                 connection = check_connection(wifi_point)
                 if connection:
                     print('CONNECTED SUCCESSFULLY: ', wifi_point)
-                    break
+                else:
+                    print('CONNECTED NOT ESTABLISHED')
 
 
     except Exception as e:
         print('Error - ', e)
         print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
-        break
+        print('CONNECTED NOT ESTABLISHED. NETWORK DONT WORK')
