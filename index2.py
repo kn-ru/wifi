@@ -11,7 +11,6 @@ while True:
         connection = check_connection_mode('internet')
         if connection:
             print('CONNECTED SUCCESSFULLY')
-            break
 
 
     except Exception as e:
