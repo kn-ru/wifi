@@ -1,7 +1,7 @@
 import time
 import os
-import pywifi
-from pywifi import const
+# import pywifi
+# from pywifi import const
 import re
 
 
@@ -37,6 +37,9 @@ if 'iPhone knru' in wifi_list:
 
     print('set config')
     os.system('wpa_passphrase "iPhone knru" "qwerty12345" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf')
+    print('sleep...')
+    time.sleep(1)
+    os.system('sudo killall wpa_supplicant')
     print('sleep...')
     time.sleep(1)
     os.system('wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0')
