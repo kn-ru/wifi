@@ -1,0 +1,8 @@
+/log/*
+/tmp
+/tmp/*
+**/__pycache__/
+development
+Procfile*
+.env
+*.*~
