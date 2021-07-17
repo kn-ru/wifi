@@ -34,4 +34,8 @@ def check_connection(wifi_point):
     else:
         print('wrong connection')
         return False
-
+def check_connection_mode(mode):
+    if mode == "internet":
+        return url_ok(test_check_url)        
+    else:
+        return url_ok(check_url)

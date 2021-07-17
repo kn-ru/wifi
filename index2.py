@@ -2,12 +2,13 @@ import time
 import os
 from utils import *
 import requests
+import sys
 
 while True:
 
     try:
         print('check connection')
-        connection = check_connection(wifi_point)
+        connection = check_connection_mode('internet')
         if connection:
             print('CONNECTED SUCCESSFULLY: ', wifi_point)
             break
