@@ -4,7 +4,7 @@ import requests
 import re
 import os
 from dotenv import load_dotenv
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "../") + ".env")
+load_dotenv()
 
 test_urls = os.getenv("TEST_LISTS_URL").split(',')
 white_list = os.getenv("WHITE_LISTS").split(',')
