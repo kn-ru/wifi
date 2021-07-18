@@ -12,7 +12,7 @@ wifi_connection = False
 while True:
 
     try:
-       print('start search wifi network...')
+        print('start search wifi network....')
         wifi_list = get_wifi_list()
 
         for wifi_point in wifi_list:
