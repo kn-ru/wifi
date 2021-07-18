@@ -10,11 +10,22 @@ lend_wifi_status = LED(18)
 button = Button(2)
 
 wifi_connection = False
+press_connection = False
 
 while True:
 
     try:
-       
+        print('scanning networks...')
+        if press_connection:
+            delta = (datetime.datetime.now()-start).seconds
+            if delta >= 3:
+                press_connection = False
+
+        if button.is_pressed and not press_connection:
+            press_connection = True
+            send_to_api(message)
+            start = datetime.datetime.now()
+        
         wifi_list = get_wifi_list()
 
         for wifi_point in wifi_list:
