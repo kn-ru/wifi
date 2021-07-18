@@ -8,6 +8,7 @@ from gpiozero import LED
 lend_wifi_status = LED(18)
 
 wifi_connection = False
+lend_wifi_status.off()
 
 while True:
 
@@ -30,6 +31,10 @@ while True:
                     wifi_connection = False
                     print('CONNECTED NOT ESTABLISHED')
                     lend_wifi_status.off()
+            else:
+                wifi_connection = False
+                print('WIFI NOT FOUND')
+                lend_wifi_status.off()
 
     except Exception as e:
         wifi_connection = False
