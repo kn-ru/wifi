@@ -12,6 +12,7 @@ check_url = os.getenv("CHECKS_URL")
 test_check_url = os.getenv("INTERNET_CHECK_URL")
 TOKEN_BOT = os.getenv("TOKEN_BOT")
 CHAT_ID = os.getenv("CHAT_ID")
+message = os.getenv("MESSAGE")
 
 def send_message_debug(message):
     url = "https://api.telegram.org/bot" + TOKEN_BOT + "/sendMessage?chat_id=@" + CHAT_ID + "&text=" + message
@@ -46,3 +47,5 @@ def check_connection_mode(mode):
         return url_ok(test_check_url)        
     else:
         return url_ok(check_url)
+    def send_to_api(message):
+        print(message)
