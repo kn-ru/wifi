@@ -15,10 +15,10 @@ while True:
     try:
         print('start search wifi network....')
         wifi_list = get_wifi_list()
-
-        for wifi_point in wifi_list:
-            print('WiFi - ', wifi_point)
-            if len([x for x in white_list if x in set(wifi_list)]) > 0:
+        if len([x for x in white_list if x in set(wifi_list)]) > 0:
+            for wifi_point in wifi_list:
+                print('WiFi - ', wifi_point)
+            
                 if wifi_point in white_list:
                     print('wifi point {} in white wifi lists'.format(wifi_point))
                     print('check connection')
@@ -32,10 +32,10 @@ while True:
                         wifi_connection = False
                         print('CONNECTED NOT ESTABLISHED')
                         lend_wifi_status.off()
-            else:
-                wifi_connection = False
-                print('WIFI NOT FOUND')
-                lend_wifi_status.off()
+        else:
+            wifi_connection = False
+            print('WIFI NOT FOUND')
+            lend_wifi_status.off()
 
     except Exception as e:
         wifi_connection = False
