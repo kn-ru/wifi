@@ -4,10 +4,8 @@ from utils import *
 import requests
 import sys
 import datetime
-from gpiozero import LED, Button
-led_send = LED(17)
+from gpiozero import LED
 lend_wifi_status = LED(18)
-button = Button(2)
 
 wifi_connection = False
 
@@ -39,3 +37,4 @@ while True:
         print('Error - ', e)
         print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
         print('CONNECTED NOT ESTABLISHED. NETWORK DONT WORK')
+
