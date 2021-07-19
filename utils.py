@@ -53,6 +53,7 @@ def send_to_api(message):
     try:
         try:
             requests.post(host + ':' + str(port), timeout=0.1)
+            print('SEND API request')
         except requests.exceptions.ReadTimeout:
             pass
     except:
