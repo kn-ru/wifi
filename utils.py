@@ -51,6 +51,9 @@ def check_connection_mode(mode):
         return url_ok(check_url)
 def send_to_api(message):
     try:
-        requests.post(host + ':' + str(port), timeout=0.1)
-    except requests.exceptions.ReadTimeout:
+        try:
+            requests.post(host + ':' + str(port), timeout=0.1)
+        except requests.exceptions.ReadTimeout:
+            pass
+    except:
         pass
