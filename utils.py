@@ -52,7 +52,7 @@ def check_connection_mode(mode):
 def send_to_api(message):
     try:
         try:
-            requests.post(host + ':' + str(port), timeout=0.1)
+            requests.post('http://' + host + ':' + str(port), json={"open":""})
             print('SEND API request')
         except requests.exceptions.ReadTimeout:
             pass
