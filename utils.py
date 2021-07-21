@@ -21,7 +21,7 @@ def send_message_debug(message):
     requests.post(url)
 
 def url_ok(url):
-    r = requests.post(url, json={"status":""})
+    r = requests.post(url, json={"status":""} ,timeout = 1)
     print('status - ', r.status_code)
 
     return r.status_code == 200
@@ -52,7 +52,7 @@ def check_connection_mode(mode):
 def send_to_api(message):
     try:
         try:
-            requests.post('http://' + host + ':' + str(port), json={"open":""})
+            requests.post('http://' + host + ':' + str(port), json={"open":""}, timeout = 1)
             print('SEND API request')
         except requests.exceptions.ReadTimeout:
             pass
