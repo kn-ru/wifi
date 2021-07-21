@@ -21,7 +21,7 @@ def send_message_debug(message):
     requests.post(url)
 
 def url_ok(url):
-    r = requests.post(url)
+    r = requests.post(url, json={"status":""})
     print('status - ', r.status_code)
 
     return r.status_code == 200
@@ -40,7 +40,7 @@ def check_connection(wifi_point):
     if wifi_point in test_urls:
         return url_ok(test_check_url)
     elif wifi_point in white_list:
-        return url_ok(host + ':' + str(port))
+        return url_ok('http://' + host + ':' + str(port))
     else:
         print('wrong connection')
         return False
